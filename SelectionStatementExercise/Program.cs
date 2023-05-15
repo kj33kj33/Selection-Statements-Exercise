@@ -4,27 +4,31 @@
     {
         static void Main(string[] args)
         {
-            int myFavNumber = 33;
+            int myNumber = RandomNumber();
 
             Console.WriteLine("Hi, guess my favorite number:");
 
             var userInput = int.Parse(Console.ReadLine());
 
-            if (userInput < myFavNumber)
+            if (userInput < myNumber)
             {
-                Console.WriteLine("Too low");
+                Console.WriteLine($"Too low, answer was {myNumber}");
             }
-
-            else if (userInput > myFavNumber)
+            else if (userInput > myNumber)
             {
-                Console.WriteLine("Too high");
+                Console.WriteLine($"Too high, answer was {myNumber}");
             }
-
             else
             {
                 Console.WriteLine("You guessed it!!!");
             }
+        }
 
+        public static int RandomNumber()
+        {
+            var r = new Random();
+            int myNumber = r.Next(1, 1000);
+            return myNumber;
         }
     }
 }
